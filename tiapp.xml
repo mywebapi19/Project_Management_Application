@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.example.demo</id>
+    <name>demo</name>
+    <version>1.0</version>
+    <publisher>Shaan</publisher>
+    <url>http://</url>
+    <description>not specified</description>
+    <copyright>2014 by Shaan</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>true</navbar-hidden>
+    <analytics>false</analytics>
+    <guid>35debce3-5b20-4521-83d8-4bf36df11964</guid>
+    <property name="ti.ui.defaultunit">dp</property>
+    <property name="ti.android.fastdev" type="bool">true</property>
+        <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest>
+        	<permissions>
+    			<permission>access_internet</permission>
+			</permissions>
+        	<application android:largeHeap="true"/>
+            <uses-sdk targetSdkVersion="19"/>
+            <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>
+            <application android:theme="@style/Theme.Titanium">
+            </application>
+        </manifest>
+    </android>
+    <modules>
+        <module platform="android">dk.napp.drawer</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+    </deployment-targets>
+    <sdk-version>3.2.1.GA</sdk-version>
+</ti:app>

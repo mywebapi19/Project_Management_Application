@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Required "Theme.Titanium" style or else you cannot build the application -->
+    <style name="Theme.Titanium" parent="@android:style/Theme.Holo.Light">
+    <item name="android:actionBarStyle">@style/Theme.Titanium.ActionBar</item>
+    <item name="android:actionMenuTextAppearance">@style/Theme.Titanium.ActionBar.MenuTextStyle</item>
+    <item name="android:actionMenuTextColor">#ffffff</item>
+    <item name="android:windowNoTitle">true</item>
+   </style>
+   
+   <!-- Action Bar Properties [Action Bar is Parent of TitleTextStyle and MenuTextStyle Properties.] -->
+   <style name="Theme.Titanium.ActionBar" parent="android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#3498db</item>
+        <item name="android:titleTextStyle">@style/Theme.Titanium.ActionBar.TitleTextStyle</item>
+    </style>
+   
+   <!-- Action Bar Title Properties [TitleTextStyle is child of ActionBar Property.]-->
+   <style name="Theme.Titanium.ActionBar.TitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+ 
+ 
+  <!-- Action Bar Menu Item Properties [MenuTextStyle is child of ActionBar Property.]-->
+ <style name="Theme.Titanium.ActionBar.MenuTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+<!--
+<item name="android:textColor">#ffffff</item>
+<item name="android:textStyle">bold</item>
+<item name="android:textSize">30sp</item>
+-->
+</style>
+ 
+ 
+    <!-- Overrides the default cursor color -->
+     <!-- Cursor Properties For Current Theme -->
+    <style name="editText" parent="@android:style/Widget.EditText">
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+</resources>
