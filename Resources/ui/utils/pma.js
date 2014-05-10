@@ -13,14 +13,103 @@ pma.trialCall.open = function() {
 
 pma.dummyData = {};
 
-pma.dummyData.getdata = function() {
+pma.dummyData.getProjectList = function() {
 
 	var data = {
-		"project_name" : "App Protector",
-		"project_key" : "BPD",
-		"project_lead" : "Bhushan Deore",
-		"member_count" : "12",
-		"ticket_count" : "19",
+		"project_list" : [{
+			"project_name" : "App Protector",
+			"project_key" : "APP",
+			"project_lead" : "Prashant Bharambe",
+			"member_count" : "10",
+			"ticket_count" : "29",
+		}, {
+			"project_name" : "Desktop Notification",
+			"project_key" : "DNP",
+			"project_lead" : "Preeti Narkhede",
+			"member_count" : "15",
+			"ticket_count" : "30",
+		}, {
+			"project_name" : "Recipe Application",
+			"project_key" : "RAP",
+			"project_lead" : "Arati Mhaisekar",
+			"member_count" : "5",
+			"ticket_count" : "20",
+		}, {
+			"project_name" : "Recharge Me",
+			"project_key" : "RMP",
+			"project_lead" : "Bhushan Deore",
+			"member_count" : "20",
+			"ticket_count" : "108",
+		},{
+			"project_name" : "Book My Movie",
+			"project_key" : "BMM",
+			"project_lead" : "Pooja Hule",
+			"member_count" : "8",
+			"ticket_count" : "45",
+		}, {
+			"project_name" : "Cot Wala",
+			"project_key" : "CWP",
+			"project_lead" : "Asmita Chaudhary",
+			"member_count" : "5",
+			"ticket_count" : "35",
+		}, {
+			"project_name" : "Mobile Booster Application",
+			"project_key" : "MBA",
+			"project_lead" : "Sanjay Mate",
+			"member_count" : "23",
+			"ticket_count" : "200",
+		}, {
+			"project_name" : "Go Travel",
+			"project_key" : "GTP",
+			"project_lead" : "Sanjay Mathapati",
+			"member_count" : "30",
+			"ticket_count" : "250",
+		}]
+	};
+
+	return data;
+};
+
+pma.dummyData.getTicketList = function() {
+
+	var data = {
+		"ticket_list" : [{
+			"ticket_title" : "Hard app crash on sliding menu",
+			"ticket_no" : "APP-1120",
+			"ticket_type" : "Bug",
+			"ticket_priority" : "Major",
+			"comment_count" : "5",
+		},{
+			"ticket_title" : "Shadow effect on Header",
+			"ticket_no" : "APP-1120",
+			"ticket_type" : "Improvement",
+			"ticket_priority" : "Minor",
+			"comment_count" : "0",
+		},{
+			"ticket_title" : "Circular profile picture",
+			"ticket_no" : "APP-1120",
+			"ticket_type" : "Task",
+			"ticket_priority" : "Trivial",
+			"comment_count" : "0",
+		},{
+			"ticket_title" : "Increase font size",
+			"ticket_no" : "APP-1120",
+			"ticket_type" : "Improvement",
+			"ticket_priority" : "Minor",
+			"comment_count" : "1",
+		},{
+			"ticket_title" : "Remove My tab",
+			"ticket_no" : "APP-1120",
+			"ticket_type" : "Improvement",
+			"ticket_priority" : "Major",
+			"comment_count" : "10",
+		},{
+			"ticket_title" : "Audio recording feature",
+			"ticket_no" : "APP-1120",
+			"ticket_type" : "New Feature",
+			"ticket_priority" : "major",
+			"comment_count" : "3",
+		},]
 	};
 
 	return data;
