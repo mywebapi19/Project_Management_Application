@@ -1,26 +1,147 @@
+/*
+ var picker = Ti.UI.createPicker({
+ top : 50
+ });
+
+ var data = [];
+ data[0] = Ti.UI.createPickerRow({
+ title : 'Bananas'
+ });
+ data[1] = Ti.UI.createPickerRow({
+ title : 'Strawberries'
+ });
+ data[2] = Ti.UI.createPickerRow({
+ title : 'Mangos'
+ });
+ data[3] = Ti.UI.createPickerRow({
+ title : 'Grapes'
+ });
+
+ picker.add(data);
+ picker.selectionIndicator = true;
+
+ newTicketWindow.add(picker);
+
+ */
+
 function RegistrationScreen() {
 
+	//User First Name.
+	function FirstNameUI() {
+
+		var firstNameField = pma.ui.getTextField("First Name");
+		var firstNameWrapper = pma.ui.getHorizontalWrapper();
+		firstNameWrapper.add(pma.ui.requiredFieldLabel());
+		firstNameWrapper.add(firstNameField);
+
+		return firstNameWrapper;
+	}
+
+	//User Last Name text field.
+	function LastNameUI() {
+
+		var lastNameField = pma.ui.getTextField("Last Name");
+		var lastNameWrapper = pma.ui.getHorizontalWrapper();
+		lastNameWrapper.add(pma.ui.requiredFieldLabel());
+		lastNameWrapper.add(lastNameField);
+
+		return lastNameWrapper;
+	}
+
+	//User Email text field.
+	function EmailUI() {
+
+		var emailField = pma.ui.getTextField("Email");
+		var emailWrapper = pma.ui.getHorizontalWrapper();
+		emailWrapper.add(pma.ui.requiredFieldLabel());
+		emailWrapper.add(emailField);
+
+		return emailWrapper;
+	}
+
+	//User Password text field.
+	function PasswordUI() {
+
+		var passwordField = pma.ui.getTextField("Password");
+		passwordField.passwordMask = true;
+		passwordField.returnKeyType = Titanium.UI.RETURNKEY_DONE;
+
+		var passwordWrapper = pma.ui.getHorizontalWrapper();
+		passwordWrapper.add(pma.ui.requiredFieldLabel());
+		passwordWrapper.add(passwordField);
+
+		return passwordWrapper;
+	}
+
+	//User Confirm Password text field.
+	function ConfirmPasswordUI() {
+
+		var confirmPasswordField = pma.ui.getTextField("Confirm Password");
+		confirmPasswordField.passwordMask = true;
+		confirmPasswordField.returnKeyType = Titanium.UI.RETURNKEY_DONE;
+
+		var confirmPasswordWrapper = pma.ui.getHorizontalWrapper();
+		confirmPasswordWrapper.add(pma.ui.requiredFieldLabel());
+		confirmPasswordWrapper.add(confirmPasswordField);
+
+		return confirmPasswordWrapper;
+	}
+
+	//User Company Name text field.
+	function CompanyNameUI() {
+
+		var companyNameField = pma.ui.getTextField("Company Name");
+		var companyNameWrapper = pma.ui.getHorizontalWrapper();
+		companyNameWrapper.add(pma.ui.requiredFieldLabel());
+		companyNameWrapper.add(companyNameField);
+
+		return companyNameWrapper;
+	}
+
+	//User Country Name text field.
+	function CountryNameUI() {
+
+		var countryNameField = pma.ui.getTextField("Country Name");
+		var countryNameWrapper = pma.ui.getHorizontalWrapper();
+		countryNameWrapper.add(pma.ui.requiredFieldLabel());
+		countryNameWrapper.add(countryNameField);
+
+		return countryNameWrapper;
+	}
+
+	//Register Button.
+	function RegisterButtonUI() {
+
+		var RegisterButton = pma.ui.getButton("Register");
+		RegisterButton.left = 10;
+
+		RegisterButton.addEventListener('click', function() {
+
+			var params = {
+				project_name : "prashant",
+				company_id : 101,
+				manager_id : 1
+			};
+
+			api("send", params, function(successData) {
+
+				Titanium.API.warn("Success :: " + successData);
+
+			}, function(FailData) {
+
+				Titanium.API.warn("Fail " + FailData);
+
+			});
+
+		});
+
+		return RegisterButton;
+	}
+
 	var registrationWindow = Ti.UI.createWindow({
-		title : 'Products',
-		exitOnClose : true,
-		navBarHidden : false,
+		navBarHidden : true,
 		backgroundColor : APP_BACKGROUND_COLOR,
 	});
-	/*
-	 var registrationButton = Titanium.UI.createButton({
-	 title : "Register",
-	 height : 44,
-	 width : Titanium.UI.SIZE,
-	 backgroundColor : "cyan",
-	 });
-
-	 //registrationWindow.add(registrationButton);
-
-	 registrationButton.addEventListener('click', function() {
-	 var ProjectManagementScreen = require("/ui/common/ProjectManagementScreen");
-	 ProjectManagementScreen();
-	 });
-	 */
 
 	var verticalItemWrapper = Titanium.UI.createScrollView({
 		height : Titanium.UI.SIZE,
@@ -30,89 +151,32 @@ function RegistrationScreen() {
 		showVerticalScrollIndicator : false
 	});
 
-	//User First Name.
-	var firstNameField = pma.ui.getTextField("First Name");
-	var firstNameWrapper = pma.ui.getHorizontalWrapper();
-	firstNameWrapper.add(pma.ui.getLabel());
-	firstNameWrapper.add(firstNameField);
-	verticalItemWrapper.add(firstNameWrapper);
+	//First Name UI
+	verticalItemWrapper.add(FirstNameUI());
 
-	//User Last Name text field.
-	var lastNameField = pma.ui.getTextField("Last Name");
-	var lastNameWrapper = pma.ui.getHorizontalWrapper();
-	lastNameWrapper.add(pma.ui.getLabel());
-	lastNameWrapper.add(lastNameField);
-	verticalItemWrapper.add(lastNameWrapper);
+	//Last Name UI
+	verticalItemWrapper.add(LastNameUI());
 
-	//User Email text field.
-	var emailField = pma.ui.getTextField("Email");
-	var emailWrapper = pma.ui.getHorizontalWrapper();
-	emailWrapper.add(pma.ui.getLabel());
-	emailWrapper.add(emailField);
-	verticalItemWrapper.add(emailWrapper);
+	//Email UI
+	verticalItemWrapper.add(EmailUI());
 
-	//User Password text field.
-	var passwordField = pma.ui.getTextField("Password");
-	passwordField.passwordMask = true;
-	passwordField.returnKeyType = Titanium.UI.RETURNKEY_DONE;
+	//Password UI
+	verticalItemWrapper.add(PasswordUI());
 
-	var passwordWrapper = pma.ui.getHorizontalWrapper();
-	passwordWrapper.add(pma.ui.getLabel());
-	passwordWrapper.add(passwordField);
-	verticalItemWrapper.add(passwordWrapper);
+	//Confirm Password UI
+	verticalItemWrapper.add(ConfirmPasswordUI());
 
-	//User Confirm Password text field.
-	var confirmPasswordField = pma.ui.getTextField("Confirm Password");
-	confirmPasswordField.passwordMask = true;
-	confirmPasswordField.returnKeyType = Titanium.UI.RETURNKEY_DONE;
+	//Company Name UI
+	verticalItemWrapper.add(CompanyNameUI());
 
-	var confirmPasswordWrapper = pma.ui.getHorizontalWrapper();
-	confirmPasswordWrapper.add(pma.ui.getLabel());
-	confirmPasswordWrapper.add(confirmPasswordField);
-	verticalItemWrapper.add(confirmPasswordWrapper);
+	//Country Name UI
+	verticalItemWrapper.add(CountryNameUI());
 
-	//User Company Name text field.
-	var companyNameField = pma.ui.getTextField("Company Name");
-	var companyNameWrapper = pma.ui.getHorizontalWrapper();
-	companyNameWrapper.add(pma.ui.getLabel());
-	companyNameWrapper.add(companyNameField);
-	verticalItemWrapper.add(companyNameWrapper);
-
-	//User Country Name text field.
-	var countryNameField = pma.ui.getTextField("Country Name");
-	var countryNameWrapper = pma.ui.getHorizontalWrapper();
-	countryNameWrapper.add(pma.ui.getLabel());
-	countryNameWrapper.add(countryNameField);
-	verticalItemWrapper.add(countryNameWrapper);
-
-	//Register Button.
-	var RegisterButton = pma.ui.getButton("Register");
-	RegisterButton.left = 10;
-	verticalItemWrapper.add(RegisterButton);
-
-	RegisterButton.addEventListener('click', function() {
-
-		var params = {
-			project_name : "prashant",
-			company_id : 101,
-			manager_id : 1
-		};
-
-		api("send", params, function(successData) {
-
-			Titanium.API.warn("Success :: " + successData);
-
-		}, function(FailData) {
-
-			Titanium.API.warn("Fail " + FailData);
-
-		});
-
-		//var ProjectManagementScreen = require("/ui/common/ProjectManagementScreen");
-		//ProjectManagementScreen();
-	});
+	//Register Button UI
+	verticalItemWrapper.add(RegisterButtonUI());
 
 	registrationWindow.add(verticalItemWrapper);
+
 	registrationWindow.open();
 
 };

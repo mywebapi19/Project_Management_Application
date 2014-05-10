@@ -5,7 +5,7 @@ Ti.include('/ui/utils/Style.js');
 
 (function() {
 
-	var LoginScreen = require('/ui/login/LoginScreen');
-	LoginScreen();
+	var BootStrapScreen = require('/ui/common/BootStrapScreen');
+	BootStrapScreen();
 
 })();

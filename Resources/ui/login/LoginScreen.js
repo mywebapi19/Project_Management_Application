@@ -1,7 +1,6 @@
 function LoginScreen() {
 
 	var loginWindow = Ti.UI.createWindow({
-		exitOnClose : true,
 		backgroundColor : APP_BACKGROUND_COLOR,
 	});
 
@@ -46,8 +45,7 @@ function LoginScreen() {
 	});
 
 	loginButton.addEventListener('click', function() {
-		var RegistrationScreen = require("/ui/login/RegistrationScreen");
-		RegistrationScreen();
+		
 	});
 
 	//horizontal view to add elements horizontally one by one.

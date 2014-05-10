@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>com.example.demo</id>
-    <name>demo</name>
+    <id>com.prashant.pma</id>
+    <name>PMA</name>
     <version>1.0</version>
     <publisher>Prashant More</publisher>
     <url>http://</url>
@@ -20,8 +20,7 @@
                 <permission>access_internet</permission>
             </permissions>
             <application android:largeHeap="true"/>
-            <uses-sdk targetSdkVersion="19"/>
-            <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>
+            <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19"/>
             <application android:theme="@style/Theme.Titanium"/>
         </manifest>
     </android>
