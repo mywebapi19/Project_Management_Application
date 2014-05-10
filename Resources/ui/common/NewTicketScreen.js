@@ -109,9 +109,9 @@ function NewTicketScreen() {
 		});
 
 		var pickerRows = [];
-		var pickerTitles = ["Bug", "Improvement", "Task"];
+		var pickerTitles = ["Bug", "Improvement", "New Feature", "Task"];
 
-		for (var i = 0; i < 3; i++) {
+		for (var i = 0; i < pickerTitles.length; i++) {
 			pickerRows[i] = Titanium.UI.createPickerRow({
 				title : pickerTitles[i],
 			});
