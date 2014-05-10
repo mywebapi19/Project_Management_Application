@@ -155,6 +155,32 @@ function BootStrapScreen() {
 
 	}
 
+	function TicketListUI() {
+
+		var horizontalWrapper = pma.ui.getHorizontalWrapper();
+		horizontalWrapper.top = 10;
+		var label = Titanium.UI.createLabel({
+			text : "Ticket List Screen",
+			color : "gray",
+			textAlign : Titanium.UI.TEXT_ALIGNMENT_CENTER,
+			font : {
+				fontSize : 18,
+				fontWeight : 'bold',
+				fontFamily : 'Helvetica Neue'
+			},
+		});
+
+		horizontalWrapper.add(label);
+
+		horizontalWrapper.addEventListener('click', function() {
+			var TicketList = require("/ui/common/TicketList");
+			TicketList();
+		});
+
+		return horizontalWrapper;
+
+	}
+
 	var verticalItemWrapper = Titanium.UI.createScrollView({
 		top : 0,
 		height : Titanium.UI.SIZE,
@@ -181,6 +207,9 @@ function BootStrapScreen() {
 
 	//ProjectList UI
 	verticalItemWrapper.add(ProjectListUI());
+	
+	//TicketList UI
+	verticalItemWrapper.add(TicketListUI());
 
 	bootStrapWindow.add(verticalItemWrapper);
 
