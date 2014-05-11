@@ -1,29 +1,3 @@
-/*
- var picker = Ti.UI.createPicker({
- top : 50
- });
-
- var data = [];
- data[0] = Ti.UI.createPickerRow({
- title : 'Bananas'
- });
- data[1] = Ti.UI.createPickerRow({
- title : 'Strawberries'
- });
- data[2] = Ti.UI.createPickerRow({
- title : 'Mangos'
- });
- data[3] = Ti.UI.createPickerRow({
- title : 'Grapes'
- });
-
- picker.add(data);
- picker.selectionIndicator = true;
-
- newTicketWindow.add(picker);
-
- */
-
 function RegistrationScreen() {
 
 	//User First Name.
@@ -101,6 +75,8 @@ function RegistrationScreen() {
 	//User Country Name text field.
 	function CountryNameUI() {
 
+		var data = pma.dummyData.getCountryList();
+
 		var countryNameField = pma.ui.getTextField("Country Name");
 		var countryNameWrapper = pma.ui.getHorizontalWrapper();
 		countryNameWrapper.add(pma.ui.requiredFieldLabel());
@@ -139,11 +115,11 @@ function RegistrationScreen() {
 	}
 
 	var registrationWindow = Ti.UI.createWindow({
-		navBarHidden : true,
-		backgroundColor : APP_BACKGROUND_COLOR,
+		backgroundColor : GRAY_LIGHT,
+		layout : "vertical",
 	});
 
-	var verticalItemWrapper = Titanium.UI.createScrollView({
+	var scrollView = Titanium.UI.createScrollView({
 		height : Titanium.UI.SIZE,
 		width : "90%",
 		backgroundColor : "transparent",
@@ -152,30 +128,30 @@ function RegistrationScreen() {
 	});
 
 	//First Name UI
-	verticalItemWrapper.add(FirstNameUI());
+	scrollView.add(FirstNameUI());
 
 	//Last Name UI
-	verticalItemWrapper.add(LastNameUI());
+	scrollView.add(LastNameUI());
 
 	//Email UI
-	verticalItemWrapper.add(EmailUI());
+	scrollView.add(EmailUI());
 
 	//Password UI
-	verticalItemWrapper.add(PasswordUI());
+	scrollView.add(PasswordUI());
 
 	//Confirm Password UI
-	verticalItemWrapper.add(ConfirmPasswordUI());
+	scrollView.add(ConfirmPasswordUI());
 
 	//Company Name UI
-	verticalItemWrapper.add(CompanyNameUI());
+	scrollView.add(CompanyNameUI());
 
 	//Country Name UI
-	verticalItemWrapper.add(CountryNameUI());
+	scrollView.add(CountryNameUI());
 
 	//Register Button UI
-	verticalItemWrapper.add(RegisterButtonUI());
+	scrollView.add(RegisterButtonUI());
 
-	registrationWindow.add(verticalItemWrapper);
+	registrationWindow.add(scrollView);
 
 	registrationWindow.open();
 

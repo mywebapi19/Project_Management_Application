@@ -180,6 +180,32 @@ function BootStrapScreen() {
 		return horizontalWrapper;
 
 	}
+	
+	function CommentListUI() {
+
+		var horizontalWrapper = pma.ui.getHorizontalWrapper();
+		horizontalWrapper.top = 10;
+		var label = Titanium.UI.createLabel({
+			text : "Comment List Screen",
+			color : "gray",
+			textAlign : Titanium.UI.TEXT_ALIGNMENT_CENTER,
+			font : {
+				fontSize : 18,
+				fontWeight : 'bold',
+				fontFamily : 'Helvetica Neue'
+			},
+		});
+
+		horizontalWrapper.add(label);
+
+		horizontalWrapper.addEventListener('click', function() {
+			var CommentList = require("/ui/common/CommentList");
+			CommentList();
+		});
+
+		return horizontalWrapper;
+
+	}
 
 	var verticalItemWrapper = Titanium.UI.createScrollView({
 		top : 0,
@@ -210,6 +236,9 @@ function BootStrapScreen() {
 	
 	//TicketList UI
 	verticalItemWrapper.add(TicketListUI());
+	
+	//CommentList UI
+	verticalItemWrapper.add(CommentListUI());
 
 	bootStrapWindow.add(verticalItemWrapper);
 

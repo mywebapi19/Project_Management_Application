@@ -70,8 +70,9 @@ function NewTicketScreen() {
 
 		var img = Ti.UI.createLabel({
 			text : "\uf188",
-			//text : "\uf08e",//improvement
-			//text : "\uf140", //task
+			//text : "\uf08e",//Improvement
+			//text : "\uf0fe",//New Feature
+			//text : "\uf140", //Task
 			font : {
 				fontSize : 16,
 				fontFamily : "FontAwesome"
@@ -79,6 +80,7 @@ function NewTicketScreen() {
 			left : 5,
 			color : RED,
 		});
+		
 		typeWrapper.add(img);
 
 		var picker = Ti.UI.createPicker();
@@ -98,6 +100,11 @@ function NewTicketScreen() {
 				case 1 :
 					img.setText("\uf08e");
 					img.setColor(GREEN);
+					break;
+
+				case 2 :
+					img.setText("\uf0fe");
+					img.setColor(BLUE);
 					break;
 
 				case 2 :
@@ -156,6 +163,7 @@ function NewTicketScreen() {
 		var img = Ti.UI.createLabel({
 			text : "\uf062", //major priority
 			//text : "\uf063",//minor priority
+			//text : "\uf0e3",//trivial priority
 			font : {
 				fontSize : 16,
 				fontFamily : "FontAwesome"
@@ -194,7 +202,7 @@ function NewTicketScreen() {
 		var pickerRows = [];
 		var pickerTitles = ["Major", "Minor", "Trivial"];
 
-		for (var i = 0; i < 3; i++) {
+		for (var i = 0; i < pickerTitles.length; i++) {
 			pickerRows[i] = Titanium.UI.createPickerRow({
 				title : pickerTitles[i],
 			});
