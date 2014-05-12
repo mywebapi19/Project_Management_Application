@@ -1,7 +1,7 @@
 function LoginScreen() {
 
 	var loginWindow = Ti.UI.createWindow({
-		backgroundColor : APP_BACKGROUND_COLOR,
+		backgroundColor : GRAY_LIGHT,
 	});
 
 	//Login Email Address.
@@ -19,7 +19,7 @@ function LoginScreen() {
 
 	var forgotPasswordLabel = Ti.UI.createLabel({
 		text : "Forgot password?",
-		color : "#DBDBDB",
+		color : WHITE,
 		width : '85%',
 		top : 10,
 		textAlign : Titanium.UI.TEXT_ALIGNMENT_LEFT,
@@ -33,7 +33,7 @@ function LoginScreen() {
 
 	var registerLabel = Ti.UI.createLabel({
 		text : "New user registration",
-		color : "#DBDBDB",
+		color : WHITE,
 		width : '85%',
 		top : 10,
 		textAlign : Titanium.UI.TEXT_ALIGNMENT_RIGHT,

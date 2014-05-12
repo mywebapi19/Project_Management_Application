@@ -112,31 +112,31 @@ pma.dummyData.getTicketList = function() {
 			"comment_count" : "5",
 		},{
 			"ticket_title" : "Shadow effect on Header",
-			"ticket_no" : "APP-1120",
+			"ticket_no" : "APP-1121",
 			"ticket_type" : "Improvement",
 			"ticket_priority" : "Minor",
 			"comment_count" : "0",
 		},{
 			"ticket_title" : "Circular profile picture",
-			"ticket_no" : "APP-1120",
+			"ticket_no" : "APP-1122",
 			"ticket_type" : "Task",
 			"ticket_priority" : "Trivial",
 			"comment_count" : "0",
 		},{
 			"ticket_title" : "Increase font size",
-			"ticket_no" : "APP-1120",
+			"ticket_no" : "APP-1123",
 			"ticket_type" : "Improvement",
 			"ticket_priority" : "Minor",
 			"comment_count" : "1",
 		},{
 			"ticket_title" : "Remove My tab",
-			"ticket_no" : "APP-1120",
+			"ticket_no" : "APP-1124",
 			"ticket_type" : "Improvement",
 			"ticket_priority" : "Major",
 			"comment_count" : "10",
 		},{
 			"ticket_title" : "Audio recording feature",
-			"ticket_no" : "APP-1120",
+			"ticket_no" : "APP-1125",
 			"ticket_type" : "New Feature",
 			"ticket_priority" : "major",
 			"comment_count" : "3",
@@ -1073,9 +1073,8 @@ pma.ui.getTextArea = function(hintText) {
 pma.ui.getButton = function(title) {
 	var button = Titanium.UI.createButton({
 		title : title,
-		color : '#FFF',
-		backgroundColor : '#acacac',
-		backgroundImage : 'none',
+		color : WHITE,
+		backgroundColor : GREEN,
 		backgroundSelectedColor : '#9B9B9B',
 		backgroundFocusedColor : '#BCBCBC',
 		borderWidth : 0,
@@ -1109,7 +1108,7 @@ pma.ui.showOverlay = function(callback) {
 		width : Ti.UI.FILL,
 		height : Ti.UI.FILL,
 		backgroundColor : 'black',
-		opacity : 0.5,
+		opacity : 0.0,
 	});
 
 	var spinner = Titanium.UI.createActivityIndicator({
@@ -1130,6 +1129,98 @@ pma.ui.showOverlay = function(callback) {
 		modal : true,
 		animated : true,
 	});
+};
+
+
+/***********************************************************************************************************
+ *	Date Picker
+ ***********************************************************************************************************/
+
+pma.ui.showDatePicker = function(callback) {
+
+	var datePickerWindow = Titanium.UI.createWindow({
+		backgroundColor : "transparent",
+		windowSoftInputMode : Ti.UI.Android.SOFT_INPUT_ADJUST_PAN,
+		navBarHidden : true,
+	});
+	var overlay = Ti.UI.createView({
+		width : Ti.UI.FILL,
+		height : Ti.UI.FILL,
+		backgroundColor : 'black',
+		opacity : 0.0,
+	});
+
+	datePickerWindow.add(overlay);
+
+	datePickerWindow.addEventListener('click', function(e) {
+		datePickerWindow.close();
+	});
+
+	var pickerView = Titanium.UI.createView({
+		height : 250,
+		width : '90%',
+		top : '30%',
+		backgroundColor : GRAY_LIGHT,
+	});
+
+	datePickerWindow.open({
+		modal : true,
+		animated : true,
+	});
+
+	var picker = Ti.UI.createPicker({
+		type : Ti.UI.PICKER_TYPE_DATE,
+		minDate : new Date(2009, 0, 1),
+		maxDate : new Date(2020, 11, 31),
+		value : new Date(),
+		top : 0,
+		bottom : 56,
+	});
+
+	var pickerCloseButton = Titanium.UI.createButton({
+		title : 'Done',
+		color : '#FFF',
+		backgroundColor : BLUE,
+		backgroundSelectedColor : '#C60000',
+		backgroundFocusedColor : '#C60000',
+		font : {
+			fontSize : '16dp',
+			fontWeight : 'normal',
+			fontFamily : 'Helvetica Neue'
+		},
+		borderColor : '#000',
+		borderWidth : 0.5,
+		borderRadius : 5,
+		width : '58%',
+		height : 30,
+		left : '20%',
+		bottom : 6,
+	});
+
+	pickerView.add(picker);
+	pickerView.add(pickerCloseButton);
+
+	datePickerWindow.add(pickerView);
+
+	picker.show();
+
+	pickerCloseButton.addEventListener('click', function() {
+
+		var e = picker;
+
+		var pickerdate = e.value;
+		var day = pickerdate.getDate();
+		var month = pickerdate.getMonth() + 1;
+		var year = pickerdate.getFullYear();
+		//Set Date format here.
+		var newdate = day + "/" + month + "/" + year;
+		
+		datePickerWindow.close();
+		
+		callback(newdate);
+
+	}); 
+
 };
 
 /***********************************************************************************************************

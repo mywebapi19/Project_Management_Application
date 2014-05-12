@@ -543,7 +543,7 @@ function TicketDetailUI() {
 		}
 
 		var statusOptionsPopUp = Titanium.UI.createAlertDialog({
-			title : "Change status of ticket",
+			title : "Change type of ticket",
 			androidView : androidMainView,
 		});
 
@@ -660,7 +660,7 @@ function TicketDetailUI() {
 		}
 
 		var statusOptionsPopUp = Titanium.UI.createAlertDialog({
-			title : "Change status of ticket",
+			title : "Select a member",
 			androidView : androidMainView,
 		});
 
@@ -819,7 +819,7 @@ function TicketDetailUI() {
 		}
 
 		var statusOptionsPopUp = Titanium.UI.createAlertDialog({
-			title : "Change status of ticket",
+			title : "Change priority of ticket",
 			androidView : androidMainView,
 		});
 

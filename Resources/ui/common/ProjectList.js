@@ -120,7 +120,7 @@ function getRow(projectData) {
 	});
 
 	var projectTitle = Titanium.UI.createLabel({
-		text : projectData.ticket_title,
+		text : projectData.project_name,
 		width : Titanium.UI.SIZE,
 		height : Titanium.UI.SIZE,
 		font : {
